@@ -1,5 +1,3 @@
-import { useState } from "react";
-import styled from "styled-components";
 import { RouterProvider } from "react-router";
 import { router } from "./providers/router";
 
