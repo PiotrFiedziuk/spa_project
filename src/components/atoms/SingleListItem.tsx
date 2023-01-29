@@ -41,10 +41,10 @@ const Wrapper = styled.div<{ selected: boolean }>`
   height: 36px;
   padding: 12px;
   user-select: none;
-  background-color: ${({ selected }) => selected && "lightblue"};
+  background-color: ${({ selected }) => selected && "#cfe1fc"};
   cursor: pointer;
 
   :hover {
-    background-color: lightblue;
+    background-color: #cfe1fc;
   }
 `;

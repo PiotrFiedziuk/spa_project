@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import { TProduct } from "../../types/fakeApiTypes/productsListApiTypes";
-import { ProductImage } from "../atoms/ProductImage";
+import { ProductThumbnail } from "../atoms/ProductThumbnail";
 import { ProductName } from "../atoms/ProductName";
+import { NavLink } from "react-router-dom";
+import { ProductPrice } from "../atoms/ProductPrice";
+import { ProductLowestPrice } from "../atoms/ProductLowestPrice";
 
 interface IProductCard {
   product: TProduct;
@@ -9,23 +12,51 @@ interface IProductCard {
 
 export const ProductCard = ({ product }: IProductCard) => {
   return (
-    <Wrapper>
-      <ProductImage src={product.thumbnail} />
-      <ProductName name={product.name} />
-    </Wrapper>
+    <StyledLink to={`/product/${product.slug}`}>
+      <Wrapper>
+        <ProductThumbnail src={product.thumbnail} />
+        <ProductInfo>
+          <ProductName name={product.name} />
+          <ProductPrice
+            price={product.price}
+            discount={product.percentageDiscount}
+          />
+          <ProductLowestPrice
+            smallestAvailablePrice={product.smallestAvailablePrice}
+          />
+        </ProductInfo>
+      </Wrapper>
+    </StyledLink>
   );
 };
+
+const StyledLink = styled(NavLink)`
+  text-decoration: none;
+  color: black;
+
+  :hover {
+    color: #6470fa;
+  }
+`;
 
 const Wrapper = styled.div`
   width: 200px;
   height: 300px;
-  border: 1px solid #6F5F5E;
-  transition: scale 200ms;
+  border: 1px solid grey;
+  transition: scale 200ms, ease-in border-color 200ms;
   border-radius: 5px;
+  background-color: white;
 
   :hover {
     cursor: pointer;
     scale: 1.1;
-    transition: scale 200ms;
+    border-color: black;
   }
+`;
+
+const ProductInfo = styled.div`
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
 `;

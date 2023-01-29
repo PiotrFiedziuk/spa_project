@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import { useAppStore } from "../../store/productsStore";
-import { ProductCard } from "../molecules/ProductCard";
 import { ProductListMapper } from "../molecules/ProductListMapper";
 import { FilteringTab } from "../molecules/FilteringTab";
 
@@ -14,6 +12,11 @@ export const ProductList = () => {
 };
 
 const Wrapper = styled.div`
-  background-color: #fff6ef;
+  background-color: white;
   width: calc(100% - 350px);
+  overflow-y: auto;
+
+  @media (max-width: 808px) {
+    width: 100%;
+  }
 `;

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { SingleListItem } from "../atoms/SingleListItem";
-import { useAppStore } from "../../store/productsStore";
 
 interface ILeftBarListMapper {
   items: any[];
@@ -11,7 +10,7 @@ export const LeftBarListMapper = ({ items }: ILeftBarListMapper) => {
     <Wrapper>
       <SingleListItem item="undefined" />
       {items.map((item) => {
-        return <SingleListItem item={item} />;
+        return <SingleListItem key={item} item={item} />;
       })}
     </Wrapper>
   );
@@ -23,7 +22,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #d28a7c;
+  background-color: white;
 
   & :first-child {
     border-top-left-radius: 5px;

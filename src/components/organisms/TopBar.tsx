@@ -10,8 +10,8 @@ export const TopBar = () => {
 };
 
 const Wrapper = styled.div`
-  border-bottom: 1px solid #6F5F5E;
+  border-bottom: 1px solid black;
   height: 70px;
   width: 100%;
-  background-color: #D28A7C;
+  background-color: #cfe1fc;
 `;

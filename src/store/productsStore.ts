@@ -5,6 +5,8 @@ export const useAppStore = create<IAppStore>()((set) => ({
   products: [],
   selectedLeftBarCategory: undefined,
   searchedValue: "",
+  selectedSizeFilters: ["S", "M", "L"],
+  selectedGenderFilter: undefined,
   isAsc: false,
 
   setProducts: (items) => {
@@ -16,7 +18,13 @@ export const useAppStore = create<IAppStore>()((set) => ({
   setSearchedValue: (value) => {
     set({ searchedValue: value });
   },
-  setIsAsc: (value) => {
-    set({ isAsc: value });
+  switchAsc: () => {
+    set((state) => ({ isAsc: !state.isAsc }));
+  },
+  setSelectedSizeFilters: (value) => {
+    set({ selectedSizeFilters: value });
+  },
+  setSelectedGenderFilter: (value) => {
+    set({ selectedGenderFilter: value });
   },
 }));

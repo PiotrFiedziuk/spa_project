@@ -7,7 +7,7 @@ interface IProductImage {
 export const ProductImage = ({ src }: IProductImage) => {
   return (
     <Wrapper>
-      <StyledImg width="198px" height="150px" src={src} alt={"Product IMG"} />
+      <StyledImg src={src} alt={"Product IMG"} />
     </Wrapper>
   );
 };
@@ -16,4 +16,8 @@ const Wrapper = styled.div`
   box-shadow: lightgray;
 `;
 
-const StyledImg = styled.img``;
+const StyledImg = styled.img`
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+`;

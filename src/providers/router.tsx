@@ -2,20 +2,25 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 import { AppLayout } from "../pages/AppLayout";
 import { ProductList } from "../components/organisms/ProductList";
 import { getProductsList } from "../api/getProductsList";
+import { ProductPage } from "../components/organisms/ProductPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    loader: () => {
-      getProductsList();
+    loader: async () => {
+      await getProductsList();
       return true;
-      //This should use rect router useLoaderData, but I'm using 'zustand' to manage store.
     },
+
     element: <AppLayout />,
     children: [
       {
         path: "products",
         element: <ProductList />,
+      },
+      {
+        path: "product/:productSlug",
+        element: <ProductPage />,
       },
     ],
   },

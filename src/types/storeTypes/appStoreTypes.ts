@@ -1,8 +1,15 @@
-import { TProduct, TProductType } from "../fakeApiTypes/productsListApiTypes";
+import {
+  TGenders,
+  TProduct,
+  TProductSizes,
+  TProductType,
+} from "../fakeApiTypes/productsListApiTypes";
 
 export interface IAppStore {
   products: TProduct[];
   selectedLeftBarCategory: TProductType | undefined;
+  selectedSizeFilters: TProductSizes[];
+  selectedGenderFilter: TGenders | undefined;
   searchedValue: string;
   isAsc: boolean;
 
@@ -11,5 +18,7 @@ export interface IAppStore {
   setSelectedLeftBarCategory: (category: TProductType | undefined) => void;
 
   setSearchedValue: (value: string) => void;
-  setIsAsc: (isAsc: boolean) => void;
+  switchAsc: () => void;
+  setSelectedSizeFilters: (sizeFilters: TProductSizes[]) => void;
+  setSelectedGenderFilter: (genderFilter?: TGenders) => void;
 }
